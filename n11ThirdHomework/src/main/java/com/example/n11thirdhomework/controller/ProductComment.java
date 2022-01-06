@@ -1,7 +1,7 @@
 package com.example.n11thirdhomework.controller;
 
 import com.example.n11thirdhomework.entity.ProductCommentEntity;
-import com.example.n11thirdhomework.service.entityService.PorductCommentService;
+import com.example.n11thirdhomework.service.entityService.ProductCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,22 +12,22 @@ import java.util.List;
 public class ProductComment {
 
     @Autowired
-    PorductCommentService porductCommentService;
+    ProductCommentService productCommentService;
 
     @GetMapping()
     public List<ProductCommentEntity> findAll()
     {
-        return porductCommentService.findAll();
+        return productCommentService.findAll();
     }
     @GetMapping("/{id}")
     public ProductCommentEntity findById(@PathVariable String id)
     {
-        return porductCommentService.findById(id);
+        return productCommentService.findById(id);
     }
 
     @PostMapping()
     public ProductCommentEntity save(@RequestBody ProductCommentEntity productCommentEntity)
     {
-        return porductCommentService.save(productCommentEntity);
+        return productCommentService.save(productCommentEntity);
     }
 }

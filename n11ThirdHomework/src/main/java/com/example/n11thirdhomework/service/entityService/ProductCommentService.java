@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PorductCommentService {
+public class ProductCommentService {
 
     @Autowired
     ProductCommentRepository productCommentRepository;
@@ -22,11 +22,7 @@ public class PorductCommentService {
     public ProductCommentEntity findById(String id)
     {
         Optional<ProductCommentEntity> productCommentEntity= productCommentRepository.findById(id);
-        if(productCommentEntity.isPresent())
-        {
-            return productCommentEntity.get();
-        }
-        return null;
+        return productCommentEntity.orElse(null);
     }
     public ProductCommentEntity save (ProductCommentEntity productCommentEntity)
     {
